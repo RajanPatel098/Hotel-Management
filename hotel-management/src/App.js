@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import BookingForm from './BookingForm';
-import BookingList from './BookingList';
 import Login from './Login';
 import Signup from './Signup';
+import BookingForm from './BookingForm';
+import BookingList from './BookingList';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
   const [bookings, setBookings] = useState([]);
 
   const addBooking = (booking) => {
@@ -16,23 +17,32 @@ function App() {
   const removeBooking = (index) => {
     setBookings(currentBookings => currentBookings.filter((_, i) => i !== index));
   };
-  
+
   const handleLogin = (username, password) => {
-    // Here, you'd typically verify the username and password against a backend.
-    // For simplicity, we'll just set isLoggedIn to true.
     setIsLoggedIn(true);
+    setUser(username);
   };
 
   const handleSignup = (username, password) => {
-    // Similar to login, you'd create a new user in your backend.
-    // This is just a placeholder to demonstrate functionality.
     setIsLoggedIn(true);
+    setUser(username);
   };
 
+  const handleSignOut = () => {
+    setIsLoggedIn(false);
+    setUser("");
+  };
 
   return (
     <div className="App">
-      <h1>Hotel Booking Tracker</h1>
+      {isLoggedIn ? (
+        <div className="banner">
+          Welcome, {user}! <button onClick={handleSignOut}>Sign Out</button>
+        </div>
+      ) : (
+        <h1>Hotel Booking Tracker</h1>
+      )}
+
       {!isLoggedIn ? (
         <>
           <Login onLogin={handleLogin} />
@@ -41,7 +51,7 @@ function App() {
       ) : (
         <>
           <BookingForm onAdd={addBooking} />
-          <BookingList bookings={bookings} />
+          <BookingList bookings={bookings} onRemove={removeBooking} />
         </>
       )}
     </div>
