@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BookingForm from './BookingForm';
 import BookingList from './BookingList';
+import './App.css' 
 
 function App() {
   const [bookings, setBookings] = useState([]);
