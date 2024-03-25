@@ -83,7 +83,8 @@ li {
   background-color: #f44336; /* Red color for the sign-out button */
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px; /* Increase padding for a larger button */
+  font-size: 16px; /* Adjust font size as needed */
   border-radius: 5px;
   cursor: pointer;
 }
