@@ -1,13 +1,19 @@
-import React from 'react';
-import { ReactDOM } from 'react';
-import { BrowserRouter } from "react-router-dom"
+import React, { useState } from 'react';
+import BookingForm from './BookingForm';
+import BookingList from './BookingList';
 
 function App() {
+  const [bookings, setBookings] = useState([]);
+
+  const addBooking = (booking) => {
+    setBookings([...bookings, booking]);
+  };
+
   return (
-    <div>
-      <p> helrrrlo wo2sssssss.
-        addadadwaddddsssss
-        ddddrld </p>
+    <div className="App">
+      <h1>Hotel Booking Tracker</h1>
+      <BookingForm onAdd={addBooking} />
+      <BookingList bookings={bookings} />
     </div>
   );
 }
