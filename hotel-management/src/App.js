@@ -40,7 +40,7 @@ function App() {
           Welcome, {user}! <button onClick={handleSignOut}>Sign Out</button>
         </div>
       ) : (
-        <h1>Hotel Bookings Tracker</h1>
+        <h1>Hotel Booking Tracker</h1>
       )}
 
       {!isLoggedIn ? (
