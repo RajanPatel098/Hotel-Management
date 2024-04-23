@@ -4,3 +4,5 @@
 
 Update Frontend
 - update login/singup pages
+
+Add Tabs for Multiple Hotels/Properties
