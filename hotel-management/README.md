@@ -6,3 +6,5 @@ Update Frontend
 - update login/singup pages
 
 Add Tabs for Multiple Hotels/Properties
+
+Add accesbility option to change themes
